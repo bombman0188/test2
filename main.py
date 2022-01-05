@@ -5,9 +5,6 @@ import subprocess
 
 
 def check():
-    if not os.path.exists(self.local_path):
-        return True
-
     subprocess.check_output(["git", "fetch"])
     ret = subprocess.check_output(["git", "diff", "main", "origin/main"])
     if ret == b"":
