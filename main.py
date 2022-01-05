@@ -26,6 +26,10 @@ def check():
     else:
         return True
 
+class MyHandler(FileSystemEventHandler):
+    def on_any_event(self, event):
+        print(event) # Your code here
+
 
 while True:
     print("ping....")
