@@ -3,6 +3,8 @@ import os
 import toml
 import subprocess
 import sys
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
 def debug(msg):
     print(msg)
