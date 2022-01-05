@@ -26,6 +26,7 @@ def check():
 
 
 while True:
+    print("ping....")
     time.sleep(3)
     if check():
         break
