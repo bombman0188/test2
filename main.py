@@ -34,7 +34,7 @@ def update():
        
         
 while True:
-    time.sleep(10)
+    time.sleep(3)
     if check():
         break
 
