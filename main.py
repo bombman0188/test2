@@ -2,11 +2,18 @@ import time
 import os
 import toml
 import subprocess
+import sys
 
+def debug(msg):
+    print(msg)
+
+branch = "main"
+if len(sys.argv) > 1:
+    branch = sys.argv[1]
 
 def check():
     subprocess.check_output(["git", "fetch"])
-    ret = subprocess.check_output(["git", "diff", "main", "origin/main"])
+    ret = subprocess.check_output(["git", "diff", branch, f"origin/{branch}"])
     if ret == b"":
         return False
     else:
@@ -24,8 +31,11 @@ def update():
         print("python setup.py install")
         subprocess.check_output(["python", "setup.py", "install"])
 
+       
+        
 while True:
     time.sleep(10)
-    print(check())
+    if check():
+        break
 
     # subprocess.check_output(["git", "pull"])
