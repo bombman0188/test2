@@ -1,8 +1,10 @@
 @echo off
 
-if "%~1"=="" (
+if "%1"=="" (
+    echo main branch
     git reset --hard origin/main
 ) else (
+    echo %1% branch
     git reset --hard origin/%1%
 )
 
