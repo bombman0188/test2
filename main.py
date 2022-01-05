@@ -17,7 +17,7 @@ def check():
 
 
 def update():
-    subprocess.check_output(["git", "pull"], cwd=self.local_path)
+    subprocess.check_output(["git", "pull"])
 
     if os.path.exists("requirements.txt"):
         print("pip install -r requirements.txt")
