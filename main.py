@@ -12,6 +12,11 @@ if len(sys.argv) > 1:
     branch = sys.argv[1]
 
 def check():
+    # 서버 업데이트 시 변경하기
+    if branch == "main":
+        # return False
+        pass
+
     subprocess.check_output(["git", "fetch"])
     ret = subprocess.check_output(["git", "diff", branch, f"origin/{branch}"])
     if ret == b"":
@@ -20,21 +25,8 @@ def check():
         return True
 
 
-def update():
-    subprocess.check_output(["git", "pull"])
-
-    if os.path.exists("requirements.txt"):
-        print("pip install -r requirements.txt")
-        subprocess.check_output(["python", "-m", "pip", "install", "-r", "requirements.txt"])
-
-    if os.path.exists("setup.py"):
-        print("python setup.py install")
-        subprocess.check_output(["python", "setup.py", "install"])
-
-       
-        
 while True:
-    time.sleep(10)
+    time.sleep(3)
     if check():
         break
 
